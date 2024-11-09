@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  body {
+    counter-reset: section-counter; /* 初始化计数器 */
+  }
+
+  .section-counter::before {
+    counter-increment: section-counter; /* 每个 section 递增计数器 */
+    content: "0" counter(section-counter) "."; /* 显示计数器 */
+    position: relative;
+    bottom: -10px;
+    margin-right: 10px;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #64ffda;
+    font-size: clamp(16px, 3vw, 20px);
+  }
+
+  .ihALZY ol li a::before {
+    content: "0" counter(item) ".";
+    margin-right: 5px;
+    color: var(--green);
+    font-size: var(--fz-xxs);
+    text-align: right;
+  }
+}
+
+p {
+  @apply mb-4;
+}
+.li_style {
+  @apply relative before:content-['▹']  before:text-green-custom  before:absolute  before:left-0 mb-[10px] text-xs pl-5;
+}
+
+.li_green {
+  @apply relative before:content-['▹']  before:text-green-custom  before:absolute before:left-0 mb-[10px] pl-5;
+}
